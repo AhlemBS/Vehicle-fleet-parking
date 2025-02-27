@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum VehicleType {
+  Car
+  Truck
+  Motorcycle
+  Bicycle
+}
+
+model Fleet {
+  id           String            @id @default(uuid())
+  name         String?        
+  userId       String            @unique   
+  vehicles   FleetVehicle[]
+} 
+
+model Vehicle {
+  id           String            @id @default(uuid())
+  name         String?
+  type        VehicleType?
+  plate        String
+  location   Json?
+  fleets     FleetVehicle[]
+}
+
+model FleetVehicle {
+  fleetId   String
+  vehicleId String
+  registredAt DateTime
+  vehicle    Vehicle @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  fleet      Fleet   @relation(fields: [fleetId], references: [id], onDelete: Cascade)
+
+  @@id([vehicleId, fleetId]) // Composite primary key
+
+}
+

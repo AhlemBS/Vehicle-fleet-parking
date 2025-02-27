@@ -1,0 +1,50 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Trigger the CI/CD pipeline on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger the pipeline on pull requests to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'  # Specify Node.js version
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Lint code
+    - name: Run ESLint
+      run: npx eslint .
+
+    # Step 5: Format code with Prettier
+    - name: Run Prettier
+      run: npx prettier --check .
+
+    # Step 6: Run Tests (with Jest)
+    - name: Run Tests
+      run: npm test
+
+    #  Step 7: Run Tests (with Jest)
+    - name: SonarQube Scan
+      run: npx sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.projectKey=my_project_key
+  
+
+    # Step 8: Deploy to production (optional, based on your requirements)
+    - name: Deploy to Production
+      run: echo "Deploying to production..."
+      if: github.ref == 'refs/heads/main'  # Deploy only if the branch is 'main'
