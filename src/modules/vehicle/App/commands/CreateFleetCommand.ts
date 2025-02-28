@@ -1,9 +1,9 @@
 class CreateFleetCommand {
-  userId: string;
+  userId: string
 
   constructor(userId: string) {
-    this.userId = userId;
+    this.userId = userId
   }
 }
 
-export default CreateFleetCommand;
+export default CreateFleetCommand

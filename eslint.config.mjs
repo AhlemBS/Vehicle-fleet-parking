@@ -1,8 +1,8 @@
 // eslint.config.mjs
-import tseslint from "@typescript-eslint/eslint-plugin";
-import tsparser from "@typescript-eslint/parser";
-import prettierPlugin from "eslint-plugin-prettier";
-import prettierConfig from "eslint-config-prettier";
+import tseslint from "@typescript-eslint/eslint-plugin"
+import tsparser from "@typescript-eslint/parser"
+import prettierPlugin from "eslint-plugin-prettier"
+import prettierConfig from "eslint-config-prettier"
 
 export default [
   {
@@ -20,24 +20,11 @@ export default [
 
     rules: {
       ...tseslint.configs.recommended.rules,
-      ...prettierConfig.rules,
+      "no-extra-semi": "error", 
+      "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": "warn",
       "no-console": "warn",
-      semi: ["error", "always"],
       quotes: ["error", "double"],
-      "prettier/prettier": "error",
     },
   },
-];
-
-// import globals from "globals";
-// import pluginJs from "@eslint/js";
-// import tseslint from "typescript-eslint";
-
-// /** @type {import('eslint').Linter.Config[]} */
-// export default [
-//   {files: ["**/*.{js,mjs,cjs,ts}"]},
-//   {languageOptions: { globals: globals.browser }},
-//   pluginJs.configs.recommended,
-//   ...tseslint.configs.recommended,
-// ];
+]

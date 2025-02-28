@@ -1,11 +1,11 @@
 class RegisterVehicleToFleetCommand {
-  vehiclePlate: string;
-  fleetId: string;
+  vehiclePlate: string
+  fleetId: string
 
   constructor(vehiclePlate: string, fleetId: string) {
-    this.vehiclePlate = vehiclePlate;
-    this.fleetId = fleetId;
+    this.vehiclePlate = vehiclePlate
+    this.fleetId = fleetId
   }
 }
 
-export default RegisterVehicleToFleetCommand;
+export default RegisterVehicleToFleetCommand

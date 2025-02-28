@@ -1,8 +1,8 @@
-import { PrismaClient } from "@prisma/client";
-import { FleetVehicle } from "../../Domain/entities /FleetVehicle";
-import IFleetVehicleRepository from "../../Domain/repositories/IFleetVehicleRepository";
+import { PrismaClient } from "@prisma/client"
+import { FleetVehicle } from "../../Domain/entities /FleetVehicle"
+import IFleetVehicleRepository from "../../Domain/repositories/IFleetVehicleRepository"
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 class FleetVehicleRepository implements IFleetVehicleRepository {
   async save(fleetVehicle: FleetVehicle) {
@@ -12,7 +12,7 @@ class FleetVehicleRepository implements IFleetVehicleRepository {
         fleetId: fleetVehicle.fleetId,
         registredAt: new Date(),
       },
-    });
+    })
   }
   async find(fleetId: string, vehicleId: string) {
     return await prisma.fleetVehicle.findFirst({
@@ -20,8 +20,8 @@ class FleetVehicleRepository implements IFleetVehicleRepository {
         fleetId: fleetId,
         vehicleId: vehicleId,
       },
-    });
+    })
   }
 }
 
-export default FleetVehicleRepository;
+export default FleetVehicleRepository

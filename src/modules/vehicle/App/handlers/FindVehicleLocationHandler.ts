@@ -1,17 +1,17 @@
-import { Vehicle } from "../../Domain/entities /Vehicle";
-import IVehicleRepository from "../../Domain/repositories/IVehicleRepository";
-import VehicleRepository from "../../Infra/db/VehicleRepository";
-import { FindVehicleLocationQuery } from "../queries/FindVehicleLocationQuery";
+import { Vehicle } from "../../Domain/entities /Vehicle"
+import IVehicleRepository from "../../Domain/repositories/IVehicleRepository"
+import VehicleRepository from "../../Infra/db/VehicleRepository"
+import { FindVehicleLocationQuery } from "../queries/FindVehicleLocationQuery"
 
 export class FindVehicleLocationHandler {
-  private vehicleRepository: IVehicleRepository;
+  private vehicleRepository: IVehicleRepository
 
   constructor() {
-    this.vehicleRepository = new VehicleRepository();
+    this.vehicleRepository = new VehicleRepository()
   }
 
   async handle(query: FindVehicleLocationQuery): Promise<any | null> {
-    const vehicle = await this.vehicleRepository.findById(query.vehicleId);
-    return vehicle ? { location: vehicle.location } : null;
+    const vehicle = await this.vehicleRepository.findById(query.vehicleId)
+    return vehicle ? { location: vehicle.location } : null
   }
 }

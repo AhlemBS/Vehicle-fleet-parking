@@ -1,13 +1,8 @@
-
-
-#    VEHICLE-FLEET-PARKING          
-
+# VEHICLE-FLEET-PARKING
 
 manage where every vehicle is parked
 
-
-#     REQUIREMENTS                  
-
+# REQUIREMENTS
 
 To run this project you will need a computer with Node, Typescript and Cucumber installed.
 ( make sure u have node 18)
@@ -24,15 +19,11 @@ After installing the dependencies you can run the tests with this command `npm t
 
 After installing the dependencies you can run the server with this command `npm run dev`.
 
+# STEP 1
 
+src/features
 
-#      STEP 1   
-
-
-
-
-#      STEP 2     
-
+# STEP 2
 
 # Running the CLI
 
@@ -54,7 +45,7 @@ just run it from your package.json : npm run fleet-cli <arguments>
 
 # if you are facing dependencies issue
 
-npm install --legacy-peer-deps
+`npm install --legacy-peer-deps`
 
 # if you are facing issue with db or prismaClient try
 
@@ -64,30 +55,30 @@ npm install --legacy-peer-deps
 
 this will regenerate the primsa client and run the migration again
 
+# STEP 3
 
-#      STEP 3     
+# For code quality i NEED
 
+# in my local development
 
-# For code quality i used
-
-# in my local development 
-
-- ESLint to catch errors and enforce coding standards ad it helps the team keeping the same standards 
-- Prettier to ensure consistent code formatting  ad it helps the team keeping the same coding standards  
-- Husky to be run before each commit / push makig sure eslint and prettier and I made our job 
+- ESLint to catch errors and enforce coding standards ad it helps the team keeping the same standards
+- Prettier to ensure consistent code formatting ad it helps the team keeping the same coding standards
+- Husky to be run before each commit / push makig sure eslint and prettier and I made our job
 - Jest to write unit test (in this project I didnt run all )
-- 
 
 # in my CI/CD
 
-I used Github actions CI/CD 
+I used Github actions CI/CD
 
- first I added .Yaml File  with the steps instal node packages , lint , format , test 
- thenn i add sonar qube step after the test step and just before the deploy step
+first I added .Yaml File with the steps instal node packages , lint , format , test
+thenn i add sonar qube step after the test step and just before the deploy step
 
- then I neeeded to set my DATABASE_URL as environment variable 
+then I neeeded to set my DATABASE_URL as environment variable for security purpose
 
-After that it comes the code review step through the pull request , and this is a continious process, that enhance also the quality of the code 
+# within my team
 
-
-
+After that it comes the code review step through the pull request , and this is a continious process, that enhance also the quality of the code
+communicate about issues nd work to find the best tools to overcome them.. accepting each others advice
+ask for help when things get harder
+stay humble and cooperative
+make sure there is coffee and snacks around

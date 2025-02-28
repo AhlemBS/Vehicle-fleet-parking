@@ -6,6 +6,6 @@ export class FleetVehicle {
   ) {}
 
   getRegistrationDate(): Date | undefined {
-    return this.registredAt;
+    return this.registredAt
   }
 }
